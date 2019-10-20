@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="491.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalendarController">
+   <children>
+      <TableView fx:id="table" layoutY="26.0" prefHeight="466.0" prefWidth="691.0" style="-fx-focus-color: transparent;" />
+      <Button fx:id="minusButton" graphicTextGap="0.0" layoutX="638.0" layoutY="435.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="35.0" prefWidth="34.0" stylesheets="@deleteButton.css" text="-">
+         <effect>
+            <DropShadow color="BLACK" offsetY="2.00" radius="3" />
+         </effect>
+         <font>
+            <Font name="Roboto Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="root" />
+            <String fx:value="button" />
+         </styleClass>
+      </Button>
+      <Button fx:id="plusButton" layoutX="600.0" layoutY="435.0" mnemonicParsing="false" onAction="#createEventWindow" stylesheets="@buttonStyle.css" text="+">
+         <effect>
+            <DropShadow color="BLACK" offsetY="2.00" radius="3" />
+         </effect>
+         <styleClass>
+            <String fx:value="root" />
+            <String fx:value="button" />
+         </styleClass>
+         <font>
+            <Font name="Roboto Bold" size="18.0" />
+         </font>
+
+      </Button>
+
+            <Label fx:id="dateLabel" layoutX="14.0" prefHeight="25.0" prefWidth="174.0">
+         <font>
+            <Font name="Roboto Bold" size="15.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <Button fx:id="showAllEvents" layoutX="433.0" layoutY="1.0" mnemonicParsing="false" onAction="#showAllEvents" styleClass="root" stylesheets="@buttonStyle.css" text="Show All Events" textFill="WHITE">
+         <opaqueInsets>
+            <Insets right="5.0" />
+         </opaqueInsets>
+         <font>
+            <Font name="Roboto Bold" size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="refresh" graphicTextGap="1.0" layoutX="365.0" layoutY="1.0" mnemonicParsing="false" onAction="#getEvent" prefHeight="21.0" prefWidth="60.0" stylesheets="@buttonStyle.css" text="Refresh" textFill="WHITE">
+         <font>
+            <Font name="Roboto Bold" size="11.0" />
+         </font>
+         <styleClass>
+            <String fx:value="root" />
+            <String fx:value="button" />
+         </styleClass>
+      </Button>
+      <DatePicker fx:id="datePicker" layoutX="529.0" layoutY="1.0" onAction="#getDate" prefHeight="25.0" prefWidth="115.0" />
+      <Label fx:id="blockLabel" layoutX="14.0" layoutY="4.0" prefHeight="22.0" prefWidth="288.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="blockButton" layoutX="616.0" layoutY="381.0" mnemonicParsing="false" onAction="#createBlockWindow" prefWidth="0.0" stylesheets="@blockButton.css">
+         <effect>
+            <DropShadow color="BLACK" offsetY="2.00" radius="3" />
+         </effect>
+         <styleClass>
+            <String fx:value="root" />
+            <String fx:value="button" />
+         </styleClass>
+         <font>
+            <Font name="Roboto Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="31.0" nodeOrientation="INHERIT" pickOnBounds="true" styleClass="button">
+               <image>
+                  <Image url="@cube.png" />
+               </image>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

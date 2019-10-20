@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddEventController">
+   <center>
+      <VBox prefHeight="212.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="title" alignment="TOP_CENTER" promptText="Title" />
+            <HBox alignment="CENTER" prefHeight="20.0" prefWidth="600.0" spacing="5.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time:" textAlignment="CENTER" wrappingWidth="38.536746978759766">
+                     <font>
+                        <Font name="Roboto Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="startTimeHours" onAction="#updateEndTime" promptText="Hour" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+                     <font>
+                        <Font name="Roboto Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="startTimeMinutes" onAction="#checkStartMinutes" promptText="Minute" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="End Time:">
+                     <font>
+                        <Font name="Roboto Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="endTimeHours" onAction="#updateStartTime" promptText="Hour" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+                     <font>
+                        <Font name="Roboto Bold" size="16.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="endTimeMinutes" onAction="#checkMinutes" promptText="Minute" />
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="23.0" prefWidth="600.0" spacing="30.0">
+               <children>
+                  <RadioButton fx:id="priority1" mnemonicParsing="false" text="!">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="priority" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="priority2" mnemonicParsing="false" text="!!" textFill="#ca6262" toggleGroup="$priority" />
+                  <RadioButton fx:id="priority3" mnemonicParsing="false" text="!!!" textFill="#cd1909" toggleGroup="$priority" />
+               </children>
+            </HBox>
+            <TextField fx:id="description" alignment="TOP_CENTER" prefHeight="25.0" prefWidth="488.0" promptText="Description (Character limit = 500)">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" right="30.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin></TextField>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="addButton" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#addEvent" stylesheets="@addButton.css" text="ADD">
+               <effect>
+                  <DropShadow color="BLACK" offsetY="2.00" radius="4" />
+               </effect>
+               <styleClass>
+                  <String fx:value="button" />
+                  <String fx:value="root" />
+               </styleClass></Button>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <HBox alignment="CENTER" prefHeight="54.0" prefWidth="600.0" spacing="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#434f49" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD EVENT">
+               <font>
+                  <Font name="Roboto Black" size="42.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="datePicker" promptText="Set Date" />
+         </children>
+      </HBox>
+   </top>
+
+</BorderPane>
